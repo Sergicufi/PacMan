@@ -18,6 +18,17 @@ class Paleta {
 
     }
 }
+class Paleta2 {
+    public int y;
+    public int alto;
+
+
+    public Paleta2(int y, int alto) {
+        this.y = y;
+        this.alto = alto;
+
+    }
+}
 
 class Pelota {
     public int x;
@@ -40,6 +51,7 @@ public class Pong extends JFrame implements KeyListener {
     private int windowHeight = 600;
     private Pelota pelota;
     private Paleta paleta;
+    private Paleta2 paleta2;
 
     private int key=0;
     private long goal;
@@ -77,6 +89,7 @@ public class Pong extends JFrame implements KeyListener {
 
         pelota = new Pelota(windowWidth/2, windowHeight/2, 5, -5);
         paleta = new Paleta(windowHeight/2, 80);
+        paleta2 = new Paleta2(windowHeight/2, 80);
     }
 
     private void pelota() {
@@ -153,6 +166,13 @@ public class Pong extends JFrame implements KeyListener {
             case KeyEvent.VK_DOWN:
                 if (paleta.y<windowHeight-78)
                     paleta.y=paleta.y+6;
+            case KeyEvent.VK_W:
+                if (paleta2.y>23)
+                    paleta2.y=paleta2.y-6;
+                break;
+            case KeyEvent.VK_S:
+                if (paleta2.y<windowHeight-78)
+                    paleta2.y=paleta2.y+6;
                 break;
             case KeyEvent.VK_E:
                 System.exit(0);
@@ -161,7 +181,9 @@ public class Pong extends JFrame implements KeyListener {
 
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(75, paleta.y, 15, paleta.alto);
-        g.fillRect(710, paleta.y, 15, paleta.alto);
+        //g.fillRect(710, paleta.y, 15, paleta.alto);
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(695, paleta2.y, 15, paleta2.alto);
     }
 
     private void muestroPuntos(Graphics g){
