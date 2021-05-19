@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
-
+///
 class Paleta {
     public int y;
     public int alto;
@@ -74,8 +74,9 @@ public class Pong extends JFrame implements KeyListener {
     }
 
     private void inicializoObjetos() {
-
-        pelota = new Pelota(windowWidth/2, windowHeight/2, 5, -5);
+    //velocidad pelota
+        pelota = new Pelota(windowWidth/2, windowHeight/2, 2, -2);
+        //altura de la paleta
         paleta = new Paleta(windowHeight/2, 80);
     }
 
