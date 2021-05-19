@@ -92,7 +92,7 @@ public class Pong extends JFrame implements KeyListener {
         paleta = new Paleta(windowHeight/2, 80);
         paleta2 = new Paleta2(windowHeight/2, 80);
     }
-
+//
     private void pelota() {
 
         pelota.x = pelota.x + pelota.veloX;
