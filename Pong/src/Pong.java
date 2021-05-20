@@ -58,8 +58,8 @@ public class Pong extends JFrame implements KeyListener {
     private long goal;
     private long tiempoDemora=8;
 
-    private int Buenas;
-    private int Malas;
+    private int jugador1;
+    private int jugador2;
 
 
     public static void main(String[] args) {
@@ -93,7 +93,7 @@ public class Pong extends JFrame implements KeyListener {
         paleta = new Paleta(windowHeight/2, 80);
         paleta2 = new Paleta2(windowHeight/2, 80);
     }
-//
+
     private void pelota() {
 
         pelota.x = pelota.x + pelota.veloX;
@@ -101,9 +101,14 @@ public class Pong extends JFrame implements KeyListener {
 
         chequearColision();
 
-        if(pelota.x <= 0 || pelota.x >= windowWidth-40){
+        if(pelota.x <= 0){
             pelota.veloX = -pelota.veloX;
-            Malas++;
+            jugador2++;
+        }
+
+        if(pelota.x >= windowWidth-40){
+            pelota.veloX = -pelota.veloX;
+            jugador1++;
         }
 
         if(pelota.y <= 20 || pelota.y >= (windowHeight - 40))
@@ -116,15 +121,13 @@ public class Pong extends JFrame implements KeyListener {
         if ( (pelota.x <= 75 && pelota.x >= 60) && pelota.y > paleta.y && pelota.y < paleta.y + paleta.alto)
         {
             if (pelota.veloX < 0)
-                Buenas++;
 
             pelota.veloX = -pelota.veloX;
         }
 
-        if ( (pelota.x >= 695 && pelota.x <= 710) && pelota.y > paleta.y && pelota.y < paleta.y + paleta.alto)
+        if ( (pelota.x >= 695 && pelota.x <= 710) && pelota.y > paleta2.y && pelota.y < paleta2.y + paleta2.alto)
         {
             if (pelota.veloX > 0)
-                Buenas++;
 
             pelota.veloX = -pelota.veloX;
         }
@@ -134,7 +137,6 @@ public class Pong extends JFrame implements KeyListener {
 
         BufferStrategy bf = this.getBufferStrategy();
         Graphics g = null;
-
         try {
             g = bf.getDrawGraphics();
 
@@ -144,6 +146,7 @@ public class Pong extends JFrame implements KeyListener {
             muestroPuntos(g);
             dibujoPelota(g);
             dibujoPaletas(g);
+            dibujoPaletas2(g);
 
         } finally {
             g.dispose();
@@ -173,6 +176,11 @@ public class Pong extends JFrame implements KeyListener {
                 System.exit(0);
 
         }
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(75, paleta.y, 15, paleta.alto);
+    }
+    private void dibujoPaletas2(Graphics g) {
+
         switch (key2){
             case KeyEvent.VK_W:
                 if (paleta2.y>23)
@@ -187,10 +195,6 @@ public class Pong extends JFrame implements KeyListener {
 
         }
 
-
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(75, paleta.y, 15, paleta.alto);
-        //g.fillRect(710, paleta.y, 15, paleta.alto);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(695, paleta2.y, 15, paleta2.alto);
     }
@@ -198,11 +202,11 @@ public class Pong extends JFrame implements KeyListener {
     private void muestroPuntos(Graphics g){
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 16));
-        g.drawString("Buenas: " + Buenas, 20, 50);
+        g.drawString("Jugador 1: " + jugador1, 20, 50);
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 16));
-        g.drawString("Malas: " + Malas, 20, 70);
+        g.drawString("Jugador 2: " + jugador2, 695, 50);
     }
 
     private void sleep(){
