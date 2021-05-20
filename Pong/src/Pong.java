@@ -54,6 +54,7 @@ public class Pong extends JFrame implements KeyListener {
     private Paleta2 paleta2;
 
     private int key=0;
+    private int key2=0;
     private long goal;
     private long tiempoDemora=8;
 
@@ -167,6 +168,12 @@ public class Pong extends JFrame implements KeyListener {
             case KeyEvent.VK_DOWN:
                 if (paleta.y<windowHeight-78)
                     paleta.y=paleta.y+6;
+                break;
+            case KeyEvent.VK_E:
+                System.exit(0);
+
+        }
+        switch (key2){
             case KeyEvent.VK_W:
                 if (paleta2.y>23)
                     paleta2.y=paleta2.y-6;
@@ -179,6 +186,7 @@ public class Pong extends JFrame implements KeyListener {
                 System.exit(0);
 
         }
+
 
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(75, paleta.y, 15, paleta.alto);
@@ -207,7 +215,9 @@ public class Pong extends JFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e){
         key=e.getKeyCode();
+        key2=e.getKeyCode();
     }
+
 
     @Override
     public void keyReleased(KeyEvent e){
