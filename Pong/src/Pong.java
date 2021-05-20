@@ -218,11 +218,11 @@ public class Pong extends JFrame implements KeyListener {
     private void muestroPuntos(Graphics g){
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 16));
-        g.drawString("Jugador 1: " + jugador1, 20, 50);
+        g.drawString("Jugador 1: " + jugador1, 95, 50);
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 16));
-        g.drawString("Jugador 2: " + jugador2, 695, 50);
+        g.drawString("Jugador 2: " + jugador2, 590, 50);
     }
 
     private void sleep(){
