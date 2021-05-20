@@ -164,11 +164,11 @@ public class Pong extends JFrame implements KeyListener {
     private void dibujoPaletas(Graphics g) {
 
         switch (key){
-            case KeyEvent.VK_UP:
+            case KeyEvent.VK_W:
                 if (paleta.y>23)
                     paleta.y=paleta.y-6;
                 break;
-            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_S:
                 if (paleta.y<windowHeight-78)
                     paleta.y=paleta.y+6;
                 break;
@@ -182,11 +182,11 @@ public class Pong extends JFrame implements KeyListener {
     private void dibujoPaletas2(Graphics g) {
 
         switch (key2){
-            case KeyEvent.VK_W:
+            case KeyEvent.VK_UP:
                 if (paleta2.y>23)
                     paleta2.y=paleta2.y-6;
                 break;
-            case KeyEvent.VK_S:
+            case KeyEvent.VK_DOWN:
                 if (paleta2.y<windowHeight-78)
                     paleta2.y=paleta2.y+6;
                 break;
