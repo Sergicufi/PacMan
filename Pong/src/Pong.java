@@ -109,11 +109,15 @@ public class Pong extends JFrame implements KeyListener {
         chequearColision();
 
         if(pelota.x <= 0){
+            pelota.x = windowWidth/2;
+            pelota.y = windowHeight/2;
             pelota.veloX = -pelota.veloX;
             jugador2++;
         }
 
         if(pelota.x >= windowWidth-40){
+            pelota.x = windowWidth/2;
+            pelota.y = windowHeight/2;
             pelota.veloX = -pelota.veloX;
             jugador1++;
         }
@@ -143,10 +147,6 @@ public class Pong extends JFrame implements KeyListener {
     private void dibujoPantalla() throws IOException {
 
         Image img = ImageIO.read(new File("C:\\Users\\SERGI\\Desktop\\Fondo.jpg"));
-
-
-
-
         BufferStrategy bf = this.getBufferStrategy();
         Graphics g = null;
         try {
