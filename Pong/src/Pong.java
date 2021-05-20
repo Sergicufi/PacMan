@@ -146,7 +146,7 @@ public class Pong extends JFrame implements KeyListener {
 
     private void dibujoPantalla() throws IOException {
 
-        Image img = ImageIO.read(new File("C:\\Users\\SERGI\\Desktop\\Fondo.jpg"));
+        Image img = ImageIO.read(new File("Pong\\Fondo.jpg"));
         BufferStrategy bf = this.getBufferStrategy();
         Graphics g = null;
         try {
