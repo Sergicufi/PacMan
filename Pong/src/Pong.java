@@ -91,6 +91,8 @@ public class Pong extends JFrame implements KeyListener {
 
     }
 
+
+
     private void inicializoObjetos() {
         //velocidad pelota
         pelota = new Pelota(windowWidth/2, windowHeight/2, 2, -2);
@@ -105,22 +107,6 @@ public class Pong extends JFrame implements KeyListener {
         pelota.y = pelota.y + pelota.veloY;
 
         chequearColision();
-
-        if(pelota.x <= 0){
-            pelota.x = windowWidth/2;
-            pelota.y = windowHeight/2;
-            pelota.veloX = -pelota.veloX;
-            jugador2++;
-            Thread.sleep(2000);
-        }
-
-        if(pelota.x >= windowWidth-40){
-            pelota.x = windowWidth/2;
-            pelota.y = windowHeight/2;
-            pelota.veloX = -pelota.veloX;
-            jugador1++;
-            Thread.sleep(2000);
-        }
 
         if(pelota.y <= 20 || pelota.y >= (windowHeight - 40))
             pelota.veloY = -pelota.veloY;
@@ -144,7 +130,7 @@ public class Pong extends JFrame implements KeyListener {
         }
     }
 
-    private void dibujoPantalla() throws IOException {
+    private void dibujoPantalla() throws IOException, InterruptedException {
 
         Image fons = ImageIO.read(new File("Pong\\Fondo.jpg"));
         BufferStrategy bf = this.getBufferStrategy();
@@ -157,6 +143,22 @@ public class Pong extends JFrame implements KeyListener {
             g.fillRect(0,0, windowWidth, windowHeight);
 
             g.drawImage(fons,0,0,null);
+
+            if(pelota.x <= 0){
+                pelota.x = windowWidth/2;
+                pelota.y = windowHeight/2;
+                pelota.veloX = -pelota.veloX;
+                jugador2++;
+                PuntJugador2(g);
+            }
+
+            if(pelota.x >= windowWidth-40){
+                pelota.x = windowWidth/2;
+                pelota.y = windowHeight/2;
+                pelota.veloX = -pelota.veloX;
+                jugador1++;
+                PuntJugador1(g);
+            }
 
 
             muestroPuntos(g);
@@ -226,6 +228,18 @@ public class Pong extends JFrame implements KeyListener {
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 16));
         g.drawString("Jugador 2: " + jugador2, 590, 50);
+    }
+    private void PuntJugador2(Graphics g) throws InterruptedException {
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Gol de jugador 2! ", windowWidth/2, windowHeight/2);
+        Thread.sleep(2000);
+    }
+    private void PuntJugador1(Graphics g) throws InterruptedException {
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Gol de jugador 1! ", windowWidth/2, windowHeight/2);
+        Thread.sleep(2000);
     }
 
     private void sleep(){
