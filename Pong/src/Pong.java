@@ -146,7 +146,7 @@ public class Pong extends JFrame implements KeyListener {
 
     private void dibujoPantalla() throws IOException {
 
-        Image img = ImageIO.read(new File("Pong\\Fondo.jpg"));
+        Image fons = ImageIO.read(new File("Pong\\Fondo.jpg"));
         BufferStrategy bf = this.getBufferStrategy();
         Graphics g = null;
         try {
@@ -156,7 +156,7 @@ public class Pong extends JFrame implements KeyListener {
 
             g.fillRect(0,0, windowWidth, windowHeight);
 
-            g.drawImage(img,0,0,null);
+            g.drawImage(fons,0,0,null);
 
 
             muestroPuntos(g);
@@ -172,9 +172,12 @@ public class Pong extends JFrame implements KeyListener {
         Toolkit.getDefaultToolkit().sync();
     }
 
-    private void dibujoPelota(Graphics g) {
-        g.setColor(Color.CYAN);
-        g.fillOval(pelota.x, pelota.y, 20, 20);
+    private void dibujoPelota(Graphics g) throws IOException {
+
+        Image bola = ImageIO.read(new File("Pong\\Bola.jpg"));
+
+        g.fillOval(pelota.x, pelota.y, 100, 100);
+        g.drawImage(bola,pelota.x,pelota.y,null);
     }
 
     private void dibujoPaletas(Graphics g) {
