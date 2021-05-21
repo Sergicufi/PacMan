@@ -170,9 +170,9 @@ public class Pong extends JFrame implements KeyListener {
 
     private void dibujoPelota(Graphics g) throws IOException {
 
-        Image bola = ImageIO.read(new File("Pong\\Bola.jpg"));
+        Image bola = ImageIO.read(new File("Pong\\Tierra-plana.png"));
 
-        g.fillOval(pelota.x, pelota.y, 20, 20);
+        g.fillOval(pelota.x, pelota.y, 75, 75);
         g.drawImage(bola,pelota.x,pelota.y,null);
     }
 
