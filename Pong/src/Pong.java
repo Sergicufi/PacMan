@@ -115,7 +115,7 @@ public class Pong extends JFrame implements KeyListener {
     }
 
     private void chequearColision(){
-        if ( (pelota.x <= 75 && pelota.x >= 60) && pelota.y > paleta.y && pelota.y < paleta.y + paleta.alto)
+        if ( (pelota.x <= 60 && pelota.x >= 55) && pelota.y > paleta.y && pelota.y < paleta.y + paleta.alto)
         {
             if (pelota.veloX < 0)
 
