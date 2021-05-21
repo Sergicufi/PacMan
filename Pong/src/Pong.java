@@ -149,7 +149,8 @@ public class Pong extends JFrame implements KeyListener {
                 pelota.y = windowHeight/2;
                 pelota.veloX = -pelota.veloX;
                 jugador2++;
-                PuntJugador2(g);
+                    PuntJugador2(g);
+
             }
 
             if(pelota.x >= windowWidth-40){
@@ -230,16 +231,16 @@ public class Pong extends JFrame implements KeyListener {
         g.drawString("Jugador 2: " + jugador2, 590, 50);
     }
     private void PuntJugador2(Graphics g) throws InterruptedException {
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Gol de jugador 2! ", windowWidth/2, windowHeight/2);
-        Thread.sleep(2000);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Arial", Font.BOLD, 20));
+            g.drawString("Gol de jugador 2! ", windowWidth / 2, windowHeight / 2);
+            Thread.sleep(2000);
     }
     private void PuntJugador1(Graphics g) throws InterruptedException {
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Gol de jugador 1! ", windowWidth/2, windowHeight/2);
-        Thread.sleep(2000);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Arial", Font.BOLD, 20));
+            g.drawString("Gol de jugador 1! ", windowWidth/2, windowHeight/2);
+            Thread.sleep(2000);
     }
 
     private void sleep(){
