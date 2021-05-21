@@ -234,13 +234,13 @@ public class Pong extends JFrame implements KeyListener {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Gol de jugador 2! ", windowWidth / 2, windowHeight / 2);
-            Thread.sleep(2000);
+             Thread.sleep(2000);
     }
     private void PuntJugador1(Graphics g) throws InterruptedException {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Gol de jugador 1! ", windowWidth/2, windowHeight/2);
-            Thread.sleep(2000);
+             Thread.sleep(2000);
     }
 
     private void sleep(){
