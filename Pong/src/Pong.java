@@ -156,7 +156,6 @@ public class Pong extends JFrame implements KeyListener {
 
 
             muestroPuntos(g);
-<<<<<<< Updated upstream
             dibujoPelota(g);
             dibujoPaletas(g);
             dibujoPaletas2(g);
@@ -249,6 +248,4 @@ public class Pong extends JFrame implements KeyListener {
 
     }
 }
-=======
-            dibujoPelota(g);
->>>>>>> Stashed changes
+
