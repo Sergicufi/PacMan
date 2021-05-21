@@ -176,7 +176,7 @@ public class Pong extends JFrame implements KeyListener {
 
         Image bola = ImageIO.read(new File("Pong\\Tierra-plana.png"));
 
-        g.fillOval(pelota.x, pelota.y, 75, 75);
+        g.fillOval(pelota.x, pelota.y, 40, 40);
         g.drawImage(bola,pelota.x,pelota.y,null);
     }
 
