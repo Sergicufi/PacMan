@@ -136,7 +136,7 @@ public class Pong extends JFrame implements KeyListener {
                 pelota.veloX = -pelota.veloX;
         }
 
-        if ( (pelota.x >= 600 && pelota.x <= 695) && pelota.y > paleta2.y && pelota.y < paleta2.y + paleta2.alto)
+        if ( (pelota.x >= 660 && pelota.x <= 695) && pelota.y > paleta2.y && pelota.y < paleta2.y + paleta2.alto)
         {
             if (pelota.veloX > 0)
 
