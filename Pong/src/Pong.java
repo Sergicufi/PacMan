@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
@@ -65,11 +67,11 @@ public class Pong extends JFrame implements KeyListener {
     private int jugador2;
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         new Pong();
     }
 
-    public Pong() throws IOException {
+    public Pong() throws IOException, InterruptedException {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(windowWidth, windowHeight);
         this.setResizable(false);
@@ -97,7 +99,7 @@ public class Pong extends JFrame implements KeyListener {
         paleta2 = new Paleta2(windowHeight/2, 80);
     }
 
-    private void pelota() throws IOException {
+    private void pelota() throws IOException, InterruptedException {
 
         pelota.x = pelota.x + pelota.veloX;
         pelota.y = pelota.y + pelota.veloY;
@@ -109,6 +111,7 @@ public class Pong extends JFrame implements KeyListener {
             pelota.y = windowHeight/2;
             pelota.veloX = -pelota.veloX;
             jugador2++;
+            Thread.sleep(2000);
         }
 
         if(pelota.x >= windowWidth-40){
@@ -116,6 +119,7 @@ public class Pong extends JFrame implements KeyListener {
             pelota.y = windowHeight/2;
             pelota.veloX = -pelota.veloX;
             jugador1++;
+            Thread.sleep(2000);
         }
 
         if(pelota.y <= 20 || pelota.y >= (windowHeight - 40))
@@ -132,7 +136,7 @@ public class Pong extends JFrame implements KeyListener {
                 pelota.veloX = -pelota.veloX;
         }
 
-        if ( (pelota.x >= 695 && pelota.x <= 710) && pelota.y > paleta2.y && pelota.y < paleta2.y + paleta2.alto)
+        if ( (pelota.x >= 660 && pelota.x <= 695) && pelota.y > paleta2.y && pelota.y < paleta2.y + paleta2.alto)
         {
             if (pelota.veloX > 0)
 
