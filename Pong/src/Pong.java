@@ -1,7 +1,3 @@
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
@@ -94,7 +90,7 @@ public class Pong extends JFrame implements KeyListener {
     }
 
     private void inicializoObjetos() {
-    //velocidad pelota
+        //velocidad pelota
         pelota = new Pelota(windowWidth/2, windowHeight/2, 2, -2);
         //altura de la paleta
         paleta = new Paleta(windowHeight/2, 80);
@@ -133,14 +129,14 @@ public class Pong extends JFrame implements KeyListener {
         {
             if (pelota.veloX < 0)
 
-            pelota.veloX = -pelota.veloX;
+                pelota.veloX = -pelota.veloX;
         }
 
         if ( (pelota.x >= 695 && pelota.x <= 710) && pelota.y > paleta2.y && pelota.y < paleta2.y + paleta2.alto)
         {
             if (pelota.veloX > 0)
 
-            pelota.veloX = -pelota.veloX;
+                pelota.veloX = -pelota.veloX;
         }
     }
 
@@ -160,6 +156,7 @@ public class Pong extends JFrame implements KeyListener {
 
 
             muestroPuntos(g);
+<<<<<<< Updated upstream
             dibujoPelota(g);
             dibujoPaletas(g);
             dibujoPaletas2(g);
@@ -252,3 +249,6 @@ public class Pong extends JFrame implements KeyListener {
 
     }
 }
+=======
+            dibujoPelota(g);
+>>>>>>> Stashed changes
