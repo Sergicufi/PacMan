@@ -196,7 +196,7 @@ public class Pong extends JFrame implements KeyListener {
 
         }
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(75, paleta.y, 15, paleta.alto);
+        g.fillRect(45, paleta.y, 15, paleta.alto);
     }
     private void dibujoPaletas2(Graphics g) {
 
@@ -215,7 +215,7 @@ public class Pong extends JFrame implements KeyListener {
         }
 
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(695, paleta2.y, 15, paleta2.alto);
+        g.fillRect(740, paleta2.y, 15, paleta2.alto);
     }
 
     private void muestroPuntos(Graphics g){
