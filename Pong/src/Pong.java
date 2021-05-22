@@ -138,8 +138,6 @@ public class Pong extends JFrame implements KeyListener {
         try {
             g = bf.getDrawGraphics();
 
-            g.setColor(Color.BLACK);
-
             g.fillRect(0,0, windowWidth, windowHeight);
 
             g.drawImage(fons,0,0,null);
