@@ -218,10 +218,12 @@ public class Pong extends JFrame implements KeyListener {
             pelota.y = windowHeight/2;
             pelota.veloX = -pelota.veloX;
             jugador2++;
+            sleep();
+        }
+        if(jugador2 == 1){
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
-            g.drawString("Gol de jugador 2! ", windowWidth / 2, windowHeight / 2);
-            sleep();
+            g.drawString("Guanya el jugador 2! ", windowWidth / 2, windowHeight / 2);
         }
     }
     private void PuntJugador1(Graphics g) throws InterruptedException {
