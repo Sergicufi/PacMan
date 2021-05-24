@@ -225,6 +225,7 @@ public class Pong extends JFrame implements KeyListener {
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Guanya el jugador 2! ", windowWidth / 2, windowHeight / 2);
         }
+        
     }
     private void PuntJugador1(Graphics g) throws InterruptedException {
 
