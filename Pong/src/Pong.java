@@ -86,7 +86,6 @@ public class Pong extends JFrame implements KeyListener {
 
         while(true) {
             pelota();
-            sleep();
         }
 
     }
@@ -142,24 +141,8 @@ public class Pong extends JFrame implements KeyListener {
 
             g.drawImage(fons,0,0,null);
 
-            if(pelota.x <= 0){
-                pelota.x = windowWidth/2;
-                pelota.y = windowHeight/2;
-                pelota.veloX = -pelota.veloX;
-                jugador2++;
-                    PuntJugador2(g);
-
-            }
-
-            if(pelota.x >= windowWidth-40){
-                pelota.x = windowWidth/2;
-                pelota.y = windowHeight/2;
-                pelota.veloX = -pelota.veloX;
-                jugador1++;
-                PuntJugador1(g);
-            }
-
-
+            PuntJugador2(g);
+            PuntJugador1(g);
             muestroPuntos(g);
             dibujoPelota(g);
             dibujoPaletas(g);
@@ -229,23 +212,33 @@ public class Pong extends JFrame implements KeyListener {
         g.drawString("Jugador 2: " + jugador2, 590, 50);
     }
     private void PuntJugador2(Graphics g) throws InterruptedException {
+        if(pelota.x <= 0){
+            pelota.x = windowWidth/2;
+            pelota.y = windowHeight/2;
+            pelota.veloX = -pelota.veloX;
+            jugador2++;
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Gol de jugador 2! ", windowWidth / 2, windowHeight / 2);
-             Thread.sleep(2000);
+            sleep();
+        }
     }
     private void PuntJugador1(Graphics g) throws InterruptedException {
+
+        if(pelota.x >= windowWidth-40){
+            pelota.x = windowWidth/2;
+            pelota.y = windowHeight/2;
+            pelota.veloX = -pelota.veloX;
+            jugador1++;
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Gol de jugador 1! ", windowWidth/2, windowHeight/2);
-             Thread.sleep(2000);
+            sleep();
+        }
     }
 
-    private void sleep(){
-        goal = ( System.currentTimeMillis() + tiempoDemora );
-        while(System.currentTimeMillis() < goal) {
-
-        }
+    private void sleep() throws InterruptedException {
+        Thread.sleep(2000);
     }
 
     @Override
