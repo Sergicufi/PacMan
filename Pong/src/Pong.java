@@ -52,16 +52,15 @@ class Pelota {
 
 public class Pong extends JFrame implements KeyListener {
 
-    private int windowWidth = 800;
-    private int windowHeight = 600;
+    private final int windowWidth = 800;
+    private final int windowHeight = 600;
     private Pelota pelota;
     private Paleta paleta;
     private Paleta2 paleta2;
 
     private int key=0;
     private int key2=0;
-    private long goal;
-    private long tiempoDemora=8;
+    private final long tiempoDemora=8;
 
     private int jugador1;
     private int jugador2;
@@ -149,7 +148,9 @@ public class Pong extends JFrame implements KeyListener {
             dibujoPaletas2(g);
 
         } finally {
-            g.dispose();
+            if (g != null) {
+                g.dispose();
+            }
         }
         bf.show();
 
